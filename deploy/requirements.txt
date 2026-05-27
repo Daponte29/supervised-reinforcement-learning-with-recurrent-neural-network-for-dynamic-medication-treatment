@@ -1,0 +1,7 @@
+# Production-only dependencies (no dev/training deps)
+fastapi>=0.111
+uvicorn[standard]>=0.29
+onnxruntime>=1.17
+numpy>=1.26
+pydantic>=2.0
+python-dotenv>=1.0

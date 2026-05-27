@@ -1,0 +1,31 @@
+experiment_name: baseline
+
+data:
+  processed_dir: data
+  time_stamp: 8          # number of trailing time steps kept per admission
+  train_frac: 0.8
+  val_frac: 0.1          # test_frac is the remainder
+  batch_size: 64
+  num_workers: 0
+  seed: 42
+
+model:
+  hidden1_units: 40      # demographic / disease projection width
+  hidden2_units: 180     # LSTM hidden width
+  embedding_num: 2001    # ICD9 vocabulary size (+1 padding idx)
+  dropout: 0.5           # critic lab-test dropout
+
+train:
+  epochs: 30
+  actor_lr: 1.0e-3
+  critic_lr: 5.0e-3
+  lstm_lr: 1.0e-3
+  weight_decay: 0.0
+  gamma: 0.99            # reward discount
+  tau: 0.001             # target-network soft-update rate
+  epsilon: 0.5           # SL/RL loss mix (epsilon * supervised + (1-epsilon) * rl)
+  max_reward: 30.0       # Bellman target clamp
+  seed: 1
+  device: cpu            # cuda | cpu | mps
+  checkpoint_dir: output_models
+  log_every: 5

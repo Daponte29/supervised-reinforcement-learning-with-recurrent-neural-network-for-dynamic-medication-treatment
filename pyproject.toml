@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dynamic_treatment"
+version = "0.1.0"
+description = "Supervised Reinforcement Learning (SRL-RNN) for dynamic medication treatment recommendation on MIMIC-III."
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.2",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scikit-learn>=1.4",
+    "pyyaml",
+    "matplotlib>=3.8",
+    "seaborn>=0.13",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+    "ipykernel",
+    "jupyterlab",
+]
+serve = [
+    "fastapi",
+    "uvicorn[standard]",
+    "onnxruntime",
+]
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

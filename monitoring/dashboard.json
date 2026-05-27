@@ -1,0 +1,42 @@
+{
+  "__comment": "Grafana / CloudWatch dashboard scaffold — import via UI or terraform grafana_dashboard resource.",
+  "title": "my_project — Model Monitoring",
+  "panels": [
+    {
+      "title": "Prediction Volume",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "TODO: insert PromQL / CloudWatch metric"
+        }
+      ]
+    },
+    {
+      "title": "Val Accuracy",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Inference Latency p99",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "TODO"
+        }
+      ]
+    },
+    {
+      "title": "Data Drift Score",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "TODO"
+        }
+      ]
+    }
+  ]
+}

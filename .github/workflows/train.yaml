@@ -1,0 +1,29 @@
+name: Cloud Training
+
+on:
+  workflow_dispatch:
+    inputs:
+      config:
+        description: "Experiment config file"
+        default: "configs/experiment_01.yaml"
+      instance_type:
+        description: "SageMaker instance type"
+        default: "ml.g4dn.xlarge"
+
+jobs:
+  launch-training:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1    # TODO: match your region
+
+      - name: Launch SageMaker training job
+        run: |
+          # TODO: replace with your SageMaker launch script / boto3 call
+          echo "Launching training with config=${{ github.event.inputs.config }}"
+          # python scripts/launch_sagemaker.py --config ${{ github.event.inputs.config }}

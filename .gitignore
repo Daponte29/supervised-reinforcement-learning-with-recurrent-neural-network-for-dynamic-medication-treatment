@@ -1,34 +1,63 @@
-# Python
+# Python / PySpark
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Jupyter Notebooks
-.ipynb_checkpoints/
-
-# Virtual Environment
-venv/
-env/
-.env
-
-# Distribution / Packaging
+*.so
+.Python
 build/
 dist/
 *.egg-info/
+.installed.cfg
+*.egg
 
-# PyTorch
-*.pth
-*.pt
+# Virtual Environments
+venv/
+env/
+.venv/
+Pipfile.lock
 
-# Data
-data/
-*.csv
-*.sql
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
 
-# Editors
-.vscode/
+# Pytest
+.pytest_cache/
+
+# Secrets
+.env
+.env.*
+*.env
+!.env.example
+
+# VS Code / IDE
+.vscode/*
+!.vscode/launch.json
 .idea/
 
-# OS
+# OS Generated Files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+
+# Logs
+*.log
+
+# Model checkpoints / experiment artifacts
+checkpoints/
+runs/
+outputs/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+wandb/
+mlruns/
+
+# Terraform state (use remote backend instead)
+infra/terraform/.terraform/
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.backup

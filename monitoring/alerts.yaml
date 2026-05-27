@@ -1,0 +1,14 @@
+# Alert thresholds — consumed by your alerting system (PagerDuty, Slack, etc.)
+
+drift:
+  covariate_p_threshold: 0.05      # KS test p-value below this triggers alert
+  label_p_threshold: 0.05
+
+performance:
+  accuracy_drop_abs: 0.05          # absolute drop from baseline triggers alert
+  latency_p99_ms: 500              # p99 inference latency cap
+
+notifications:
+  slack_webhook: ""                # TODO: set via secret / env var
+  pagerduty_key: ""                # TODO: set via secret / env var
+  email: ""

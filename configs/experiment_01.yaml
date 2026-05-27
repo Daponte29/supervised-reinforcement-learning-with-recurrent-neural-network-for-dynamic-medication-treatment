@@ -1,0 +1,32 @@
+# Inherits intent from base.yaml — override only what changes.
+experiment_name: srl_rnn_experiment_01
+
+data:
+  processed_dir: data
+  time_stamp: 8
+  train_frac: 0.8
+  val_frac: 0.1
+  batch_size: 32
+  num_workers: 0
+  seed: 42
+
+model:
+  hidden1_units: 40
+  hidden2_units: 180
+  embedding_num: 2001
+  dropout: 0.5
+
+train:
+  epochs: 30
+  actor_lr: 1.0e-3
+  critic_lr: 5.0e-3
+  lstm_lr: 1.0e-3
+  weight_decay: 0.0
+  gamma: 0.99
+  tau: 0.001
+  epsilon: 0.5
+  max_reward: 30.0
+  seed: 1
+  device: cpu
+  checkpoint_dir: output_models
+  log_every: 5
